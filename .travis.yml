@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hitbear/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run hitbear/react-test yarn test --coverage
+
+after_success:
+  - docker build -t hitbear/multi-client ./client
+  - docker build -t hitbear/multi-nginx ./nginx
+  - docker build -t hitbear/multi-server ./server
+  - docker build -t hitbear/multi-worker ./worker
