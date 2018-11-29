@@ -18,3 +18,16 @@ after_success:
   - docker push hitbear/multi-nginx
   - docker push hitbear/multi-server
   - docker push hitbear/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'ca-central-1'
+  app: 'multi-docker'
+  env: 'MultiDocker-env'
+  bucket-name: 'elasticbeanstalk-ca-central-1-250175909064'
+  bucket-path: 'multi-docker'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: '$AWS_SECRET_KEY'
