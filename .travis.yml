@@ -13,3 +13,8 @@ after_success:
   - docker build -t hitbear/multi-nginx ./nginx
   - docker build -t hitbear/multi-server ./server
   - docker build -t hitbear/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --passowrd-stdin
+  - docker push hitbear/multi-client
+  - docker push hitbear/multi-nginx
+  - docker push hitbear/multi-server
+  - docker push hitbear/multi-worker
