@@ -24,7 +24,6 @@
     },
     {
       "name": "nginx",
-
       "image": "hitbear/multi-nginx",
       "hostname": "nginx",
       "essential": true,
