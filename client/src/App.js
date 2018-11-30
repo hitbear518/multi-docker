@@ -24,7 +24,7 @@ class App extends Component {
               Learn React
             </a>
             <Link to="/">Home</Link>
-            <Link to="/otherpage">OtherPage</Link>
+            <Link to="/otherpage">new other page</Link>
           </header>
           <div>
             <Route exact path="/" component={Fib} />
